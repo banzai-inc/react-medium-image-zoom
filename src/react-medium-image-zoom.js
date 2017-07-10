@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom'
-
-const { bool, func, object, shape, string } = PropTypes
 
 const transitionDuration = 300
 
@@ -209,29 +206,6 @@ export default class ImageZoom extends Component {
       this.setState(changes, this.props.onUnzoom)
     }
   }
-}
-
-ImageZoom.propTypes = {
-  image: shape({
-    src: string.isRequired,
-    alt: string,
-    className: string,
-    style: object
-  }).isRequired,
-  zoomImage: shape({
-    src: string,
-    alt: string,
-    className: string,
-    style: object
-  }),
-  defaultStyles: object,
-  isZoomed: bool,
-  shouldHandleZoom: func,
-  shouldPreload: bool,
-  shouldReplaceImage: bool,
-  shouldRespectMaxDimension: bool,
-  onZoom: func,
-  onUnzoom: func
 }
 
 //====================================================
@@ -458,18 +432,6 @@ function getMaxDimensionScale({ width, height, naturalWidth, naturalHeight, zoom
   return scale > 1 ? ratio : scale * ratio
 }
 
-Zoom.propTypes = {
-  zoomImage: shape({
-    src: string,
-    alt: string,
-    className: string,
-    style: object
-  }).isRequired,
-  image: object.isRequired,
-  hasAlreadyLoaded: bool.isRequired,
-  defaultStyles: object.isRequired
-}
-
 //====================================================
 
 class Overlay extends Component {
@@ -507,11 +469,6 @@ class Overlay extends Component {
       this.props.defaultStyles.overlay
     )
   }
-}
-
-Overlay.propTypes = {
-  isVisible: bool.isRequired,
-  defaultStyles: object.isRequired
 }
 
 //====================================================
